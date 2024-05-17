@@ -2,15 +2,22 @@
 
 // Introduction: Interfaces in TypeScript are used to define the structure of objects,
     // ensuring they adhere to specific shapes and properties.
+interface IStudent {
+    firstName:string;   // property
+    lastName:string;
+    score:number;
+    display():void;     // method
+}
+//Rules: Compile Time
 
-// Define an Object Interface: Defining an interface for an object
+//--------------------->> Define an Object Interface: Defining an interface for an object
 interface Person {
     firstName: string;
     lastName: string;
     age: number;
 }
 
-// Create an object: Creating an object that adheres to the Person interface
+//--------------------->> Create an object: Creating an object that adheres to the Person interface
 let john: Person = {
     firstName: "John",
     lastName: "Doe",
@@ -23,7 +30,7 @@ console.log(john);
     // of a person object with `firstName`, `lastName`, and `age` properties.
 // Create an object: The `john` object adheres to the `Person` interface structure.
 
-// Defining optional properties: Defining an interface with optional properties
+//--------------------->> Defining optional properties: Defining an interface with optional properties
 interface Car {
     make: string;
     model: string;
@@ -40,7 +47,8 @@ console.log(myCar);
 // Defining optional properties: The `Car` interface includes an optional `year` property.
     // The `myCar` object is valid without the `year` property.
 
-// Interfaces are only compile time: Demonstrating that interfaces are not present at runtime
+//--------------------->> Interfaces are only compile time: Demonstrating that interfaces are not present at runtime
+                                                            // It converts to javascript (where no interface is present)
 function printPerson(person: Person) {
     console.log(`${person.firstName} ${person.lastName}, Age: ${person.age}`);
 }
@@ -50,7 +58,26 @@ printPerson(john);
 // Interfaces are only compile time: The `Person` interface
     // is used for type checking at compile time, but does not exist at runtime.
 
-// Function Interfaces: Defining an interface for a function
+//--------------------->> Function Interfaces: Defining an interface for a function
+interface Add {
+    (x: number, y: number): void;        // Function type: takes two numbers, returns void
+}
+interface Sub {
+    (x: number, y: number): number;      // Function type: takes two numbers, returns a number
+}
+
+let add4: Add;           // Variable that will hold a function of type Add
+var sub4: Sub;           // Variable that will hold a function of type Sub
+
+add4 = function(x: number, y: number): void {        // Function assigned to add4
+    console.log(x + y);                              // Logs the sum of x and y
+}
+sub4 = function(a: number, b: number): number {      // Function assigned to sub4
+    return a - b;                                    // Returns the result of a minus b
+}
+console.log(add4(10, 5) + " " + sub4(10, 5));
+
+// Ex. 2
 interface GreetFunction {
     (name: string): string;
 }
@@ -64,28 +91,24 @@ console.log(greet3("Alice"));
 // Function Interfaces: The `GreetFunction` interface defines a function that takes a string
     // and returns a string. The `greet` function adheres to this interface.
 
-// Return Types in Functional interfaces: Specifying return types in function interfaces
+//--------------------->> Return Types in Functional interfaces: Specifying return types in function interfaces
 interface AddFunction {
-    (a: number, b: number): number;
+    (a: number, b: number);                 // if we do not specify return type of a function here, then we can use any return type below
 }
 
-let add3: AddFunction = (a, b) => {
+let add3: AddFunction = (a, b) : number => {        // we can use any return type
     return a + b;
 };
 console.log(add3(2, 3));
 
-// Explanation:
-// Return Types in Functional interfaces: The `AddFunction` interface specifies
-    // that the function takes two numbers and returns a number. The `add` function adheres to this interface.
-
-// Adding methods to Object Interfaces: Adding methods to an object interface
-interface Employee {
+//--------------------->> Adding methods to Object Interfaces: Adding methods to an object interface
+interface Employee2 {
     name: string;
     age: number;
     greet(): string;
 }
 
-let employee: Employee = {
+let employee: Employee2 = {
     name: "Alice",
     age: 30,
     greet() {
@@ -98,7 +121,7 @@ console.log(employee.greet());
 // Adding methods to Object Interfaces: The `Employee` interface includes a method `greet`.
     // The `employee` object implements this method.
 
-// Array Interfaces: Defining an interface for an array
+//--------------------->> Array Interfaces: Defining an interface for an array
 interface StringArray {
     [index: number]: string;
 }
@@ -110,7 +133,7 @@ console.log(myArray[0]); // Bob
 // Array Interfaces: The `StringArray` interface defines an array where each index
     // contains a string. The `myArray` array adheres to this interface.
 
-// String indexed Array Interfaces: Defining an interface with string index signature
+//--------------------->> String indexed Array Interfaces: Defining an interface with string index signature
 interface NumberDictionary {
     [index: string]: number;
 }
@@ -120,27 +143,41 @@ let scores: NumberDictionary = {
     "Bob": 20,
     "Charlie": 15
 };
+//Or
+scores["Rony"] = 7;
+scores["Mousi"] = 10;
+
 console.log(scores["Alice"]); // 10
 
 // Explanation:
+// If we want to iterate this tne use `for in` loop
 // String indexed Array Interfaces: The `NumberDictionary` interface defines
     // an object with string keys and number values. The `scores` object adheres to this interface.
 
-// Extending interfaces: Creating an interface that extends another interface
-interface Shape {
-    color: string;
+//--------------------->> Extending interfaces: Creating an interface that extends another interface
+interface Exterior{
+    color:string;
+    numOfDoors:Number;
 }
 
-interface Circle extends Shape {
-    radius: number;
+interface Interior{
+    seats: number;
+    auto: boolean;
 }
 
-let circle: Circle = {
-    color: "red",
-    radius: 10
-};
-console.log(circle);
+interface Carr extends Exterior, Interior{
+    make: string;
+    model2:String;
+    year2: number;
+}
 
-// Explanation:
-// Extending interfaces: The `Circle` interface extends the `Shape` interface,
-    // adding a `radius` property. The `circle` object adheres to the `Circle` interface.
+let mycar : Carr = {
+    make: "Honde",
+    model2: "FlyCar",
+    year2: 2018,
+    color: "grey",
+    numOfDoors: 5,
+    seats: 11,
+    auto: true
+}
+
