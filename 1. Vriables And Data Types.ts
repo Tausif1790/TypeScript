@@ -10,7 +10,7 @@ let octal: number = 0o744;
 let color: string = "blue";
 let fullName: string = `Bob Bobbington`;
 let agee: number = 37;
-let sentence: string = `Hello, my name is ${fullName}. I'll be ${age + 1} years old next month.`;
+let sentence: string = `Hello, my name is ${fullName}. I'll be ${agee + 1} years old next month.`;
 
 //--------------------->> Arrays:
 // list: An array of numbers using the number[] syntax.
@@ -51,10 +51,10 @@ let strLength: number = (someValue as string).length;
 
 //--------------------->> Void
 // warnUser: A function that does not return a value.
-// unusable: A variable that can only hold undefined or null.
 function warnUser(): void {
     console.log("This is my warning message");
 }
+// unusable: A variable that can only hold undefined or null.
 let unusable: void = undefined;
 
 //--------------------->> Null and Undefined
@@ -65,13 +65,14 @@ let n: null = null;
 
 //--------------------->> Never
 // error: A function that never returns (throws an exception).
-// infiniteLoop: A function that has an infinite loop and never returns.
 function error(message: string): never {
     throw new Error(message);
 }
 function fail() {
     return error("Something failed");
 }
+
+// infiniteLoop: A function that has an infinite loop and never returns.
 function infiniteLoop(): never {
     while (true) {}
 }

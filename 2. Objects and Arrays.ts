@@ -12,7 +12,7 @@ let person = {
 
 // Accessing object properties
 console.log(person.firstName);      // John
-console.log(person["lastName"]); // Doe
+console.log(person["lastName"]);    // Doe
 
 // For-In Loop: Iterating over the properties of an object
 // For-In Loop: A for-in loop iterates over the keys of the person object, allowing us to access each key-value pair.

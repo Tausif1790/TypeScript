@@ -59,6 +59,7 @@ function calculator (fun:any) : void{
     console.log(fun(10,20)) ;
 }
 calculator(add2(10, 20));       // 30
+calculator(add2); 
 
 //ex2.
 
@@ -79,7 +80,7 @@ function calculator2() : any{
 }
 
 var sub = calculator2 ();    // saving func to variable
-console.log(sub(20,5));   // invoking function
+console.log(sub(20,5));      // invoking subtract function
 //or
 console.log(calculator2()(20,5));   // second way to invoke subtract
 
@@ -135,7 +136,7 @@ console.log(sum(1, 2, 3, 4)); // 10
 // Explanation:
 // Rest Params: The `sum` function uses rest parameters to accept any number of arguments and returns their sum.
 
-// Using a Type on REST Param: Typing rest parameters in a function
+//--------------------->> Using a Type on REST Param: Typing rest parameters in a function
 function joinStrings(separator: string, ...strings: string[]): string {
     return strings.join(separator);
 }
