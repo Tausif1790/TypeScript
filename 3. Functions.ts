@@ -49,17 +49,18 @@ greetDefault(); // Hello, stranger!
 greetDefault("Alice"); // Hello, Alice!
 
 // Explanation:
-// Default Values: The `greetDefault` function has a default value "stranger" for the `name` parameter, which is used if no argument is provided.
+// Default Values: The `greetDefault` function has a default value "stranger" for the `name` parameter,
+    // which is used if no argument is provided.
 
 //--------------------->> Function as parameter: Passing a function as an argument to another function
 function add2(num1: number, num2: number) : number{
     return num1+num2;
 }
-function calculator (fun:any) : void{
+function calculator3(fun:any) : void{
     console.log(fun(10,20)) ;
 }
-calculator(add2(10, 20));       // 30
-calculator(add2); 
+calculator3(add2(10, 20));       // 30
+calculator3(add2); 
 
 //ex2.
 
@@ -102,12 +103,14 @@ const square = function (x: number): number {
 console.log(square(4)); // 16
 
 // Explanation:
-// Anonymous Functions: An anonymous function is assigned to the `square` variable, which calculates the square of a number.
+// Anonymous Functions: An anonymous function is assigned to the `square` variable,
+    // which calculates the square of a number.
 
 //--------------------->> Overloading: Function overloading with different parameter types
 // restrict overloaded function to a perticular type
 function reverse(value: string): string;
 function reverse(value: number): number;
+
 function reverse(value: any): any {
     if (typeof value === "string") {
         return value.split("").reverse().join("");
@@ -120,7 +123,8 @@ console.log(reverse(12345)); // 54321
 // console.log(reverse(true)); // compile error
 
 // Explanation:
-// Overloading: The `reverse` function is overloaded to handle both string and number inputs, reversing the string or number accordingly.
+// Overloading: The `reverse` function is overloaded to handle both string and number inputs,
+    // reversing the string or number accordingly.
 
 //--------------------->> Rest Params: Using rest parameters in a function
 // function sum(x: int, y: string, ...numbers: number[]): number (also done like this, ...numbers should be last parameter)

@@ -82,16 +82,16 @@ class MyClassWithTimestamp {
 }
 
 let myInstance = new MyClassWithTimestamp('Sample');
-console.log((<any>myInstance).timestamp); // Outputs the timestamp when the instance was created
+console.log((<any>myInstance).timestamp);    // Outputs the timestamp when the instance was created
 
 // Explanation:
 // Add Props using Class Decorator: The `addTimestamp` decorator adds a `timestamp` property to instances of the class.
 
 //--------------------->> Property Decorator: A simple property decorator example
 function propertyDecorator(target: any, propertyName: string){
-    console.log ('Property Decorator')
-    console.log (target.constructor)
-    console.log (propertyName )
+    console.log('Property Decorator');
+    console.log(target.constructor);
+    console.log(propertyName);
 }
 
 @classDecorator
@@ -229,10 +229,10 @@ myMethodInstance.myMethod('test', 42);
 function paramDecorator(target: any,
     methodName: string,
     paramIndex: number){
-    console. log ('Param Decorator')
-    console. log (target)
-    console. log (methodName )
-    console. log (paramIndex)
+    console.log('Param Decorator')
+    console.log(target)
+    console.log(methodName)
+    console.log(paramIndex)
     }
 
 
@@ -291,11 +291,11 @@ myParamInstance.myMethod('param1', 123);
 
 //--------------------->> Decorator Factories: Creating a decorator factory
 function classDecoratorFactory(price: number){      // wrapping parameter value with prototype property using decorator property
-    console. log( 'Class Decorator Factory')
+    console.log( 'Class Decorator Factory')
     return (constructor: Function)=>{
-        console. log( 'Class Decorator')
-        console. log (constructor)
-        constructor.prototype.price = price
+        console.log('Class Decorator');
+        console.log (constructor);
+        constructor.prototype.price = price;
     }
 }
 

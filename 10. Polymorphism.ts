@@ -12,7 +12,7 @@
 // p = new Trainer()                 work()
 
 
-class Animal {
+class Animal2 {
     name: string;
 
     constructor(name: string) {
@@ -24,7 +24,7 @@ class Animal {
     }
 }
 
-class Dog extends Animal {
+class Dog2 extends Animal2 {
     constructor(name: string) {
         super(name);
     }
@@ -35,7 +35,7 @@ class Dog extends Animal {
     }
 }
 
-class Cat extends Animal {
+class Cat2 extends Animal2 {
     constructor(name: string) {
         super(name);
     }
@@ -47,10 +47,10 @@ class Cat extends Animal {
 }
 
 //--------------------->> Polymorphism in action: Using a base class reference to refer to derived class objects
-let animals: Animal[] = [
-    new Dog("Buddy"),
-    new Cat("Whiskers"),
-    new Animal("Generic Animal")
+let animals: Animal2[] = [
+    new Dog2("Buddy"),
+    new Cat2("Whiskers"),
+    new Animal2("Generic Animal")
 ];
 
 for (let animal of animals) {

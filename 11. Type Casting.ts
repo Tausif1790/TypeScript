@@ -31,7 +31,7 @@ console.log(stringBoolean); // "true"
 // Using the toString method: The `toString` method is used to convert a number or boolean to a string.
 
 //--------------------->> Object Casting: Casting one type to another
-class Person {
+class Personn {
     name: string;
 
     constructor(name: string) {
@@ -39,7 +39,7 @@ class Person {
     }
 }
 
-class Employee extends Person {
+class Employee extends Personn {
     employeeId: number;
 
     constructor(name: string, employeeId: number) {
@@ -48,8 +48,8 @@ class Employee extends Person {
     }
 }
 
-let employee: Person = new Employee("Alice", 123);
-console.log((employee as Employee).employeeId); // 123
+let employee5 : Personn = new Employee("Alice", 123);
+console.log((employee5 as Employee).employeeId); // 123
 
 // Explanation:
 // Object Casting: The `employee` object, which is of type `Person`, is cast to type `Employee` using the `as` syntax to access the `employeeId` property.

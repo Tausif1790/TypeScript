@@ -17,7 +17,7 @@ console.log(map.size); // 2
 map.clear();
 console.log(map.size); // 0
 
-for (let [key, value] of map) {
+for (let [key, value] of map) {             // uning "of" not "in"
     console.log(`${key}: ${value}`);
     // Output:
     // one: 1
@@ -56,9 +56,13 @@ console.log(set.size);   // 3
 set.delete(3);
 console.log(set.size);   // 2
 
-set.forEach(function(item){     // iterate all values
+set.forEach(function(item){
     console.log(item);
 });
+//Or
+for(let item of set){            // uning "of" not "in"
+    console.log(item);
+}
 
 // Explanation:
 // Set: A `Set` is created to store unique values of any type. Methods like `add`, `has`,
@@ -66,8 +70,8 @@ set.forEach(function(item){     // iterate all values
 
 //--------------------->> Regular Expressions: Creating and using regular expressions
 let regex: RegExp = /hello/;
-console.log(regex.test("hello world")); // true
-console.log(regex.test("goodbye world")); // false
+console.log(regex.test("hello world"));      // true
+console.log(regex.test("goodbye world"));    // false
 
 // Explanation:
 // Regular Expressions: A `RegExp` object is created to match the pattern "hello".

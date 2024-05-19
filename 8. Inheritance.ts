@@ -36,9 +36,9 @@ class Dog extends Animal {
 
 //--------------------->> Create Child Objects: Creating instances of the derived class
 let myDog = new Dog("Buddy", "Golden Retriever");
-console.log(myDog.name); // Buddy
-console.log(myDog.breed); // Golden Retriever
-myDog.makeSound(); // Bark
+console.log(myDog.name);     // Buddy
+console.log(myDog.breed);    // Golden Retriever
+myDog.makeSound();           // Bark
 
 // Explanation:
 // Extending a class: The `Animal` class is a base class with a `name` property
@@ -60,8 +60,8 @@ class Cat extends Animal {
 }
 
 let myCat = new Cat("Whiskers");
-console.log(myCat.name); // Whiskers
-myCat.makeSound(); // Meow
+console.log(myCat.name);     // Whiskers
+myCat.makeSound();           // Meow
 
 // Explanation:
 // Inheriting Functionality: The `Cat` class extends the `Animal` class and overrides the `makeSound` method to provide a specific implementation for cats.

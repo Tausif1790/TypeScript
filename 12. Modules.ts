@@ -55,7 +55,7 @@ export default config;
 // file: index.ts
 import config from './config';                  // {config} - not this
 
-console.log(config.apiUrl); // http://api.example.com
+console.log(config.apiUrl);  // http://api.example.com
 console.log(config.timeout); // 5000
 
 // Explanation:
